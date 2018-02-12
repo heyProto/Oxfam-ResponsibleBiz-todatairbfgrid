@@ -14,49 +14,55 @@
           "title": "Sector",
           "type": "string"
         },
-        "current_year":{
+        "ownership":{
+          "title": "Ownership",
+          "type": "string",
+          "enum":["Private","Public"],
+          "default":"Private"
+        },
+        "year":{
           "title": "Current Year",
           "type": "integer"
         },
-        "current_non_discrimination":{
+        "non_discrimination":{
           "title":"Current Non Discrimination",
           "type":"number"
         },
-        "current_employees_well_being":{
+        "employees_well_being":{
           "title":"Current Employees Well Being",
           "type":"number"
         },
-        "current_community_development": {
+        "community_development": {
           "title":"Current Community Development",
           "type":"number"
         },
-        "current_supply_chain": {
+        "supply_chain": {
           "title":"Current Supply Chain",
           "type":"number"
         },
-        "current_community_business_stakeholder": {
+        "community_business_stakeholder": {
           "title":"Current Community Business Stakeholder",
           "type":"number"
         },
-        "previous_non_discrimination":{
-          "title":"Previous Non Discrimination",
-          "type":"number"
+        "range_non_discrimination":{
+          "title":"Range of Current Non Discrimination",
+          "type":"string"
         },
-        "previous_employees_well_being": {
-          "title":"Previous Employees Well Being",
-          "type":"number"
+        "range_employees_well_being":{
+          "title":"Range of Current Employees Well Being",
+          "type":"string"
         },
-        "previous_community_development": {
-          "title":"Previous Community Development",
-          "type":"number"
+        "range_community_development": {
+          "title":"Range of Current Community Development",
+          "type":"string"
         },
-        "previous_supply_chain": {
-          "title":"Previous Supply Chain",
-          "type":"number"
+        "range_supply_chain": {
+          "title":"Range of Current Supply Chain",
+          "type":"string"
         },
-        "previous_community_business_stakeholder": {
-          "title":"Previous Community Business Stakeholder",
-          "type":"number"
+        "range_community_business_stakeholder": {
+          "title":"Range of Current Community Business Stakeholder",
+          "type":"string"
         }
       },
       "title":"Card Data",

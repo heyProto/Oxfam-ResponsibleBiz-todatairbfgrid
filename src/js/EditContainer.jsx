@@ -32,7 +32,7 @@ export default class EditGridCard extends React.Component {
       optionalConfigJSON: this.state.optionalConfigJSON,
       optionalConfigSchemaJSON: this.state.optionalConfigSchemaJSON
     }
-    getDataObj["name"] = getDataObj.dataJSON.data.title.substr(0,225); // Reduces the name to ensure the slug does not get too long
+    getDataObj["name"] = getDataObj.dataJSON.data.name.substr(0,225); // Reduces the name to ensure the slug does not get too long
     return getDataObj;
   }
 
@@ -48,6 +48,17 @@ export default class EditGridCard extends React.Component {
       ]).then(axios.spread((card, schema, opt_config, opt_config_schema, uiSchema, site_configs) => {
           let formData = card.data,
               stateVar;
+          let options = ["non_discrimination",
+            "employees_well_being",
+            "community_development",
+            "supply_chain",
+            "community_business_stakeholder"
+          ];
+          options.forEach((opt)=>{
+            let dat = formData.data[opt];
+            let newop = "range_"+opt;
+            formData.data[newop] = this.classifyRange(dat);
+          });
           stateVar = {
             fetchingData: false,
             dataJSON:formData,
@@ -57,7 +68,7 @@ export default class EditGridCard extends React.Component {
             optionalConfigSchemaJSON: opt_config_schema.data,
             siteConfigs: site_configs.data
           }
-
+          
           stateVar.optionalConfigJSON.house_colour = stateVar.siteConfigs.house_colour;
           stateVar.optionalConfigJSON.reverse_house_colour = stateVar.siteConfigs.reverse_house_colour;
           stateVar.optionalConfigJSON.font_colour = stateVar.siteConfigs.font_colour;
@@ -71,12 +82,33 @@ export default class EditGridCard extends React.Component {
         });
     }
   }
-
+  classifyRange(data){
+    if(data <= 0.25){
+      return "0 to 25%"
+    }else if(data <= 0.5){
+      return "more than 25% to 50%"
+    }else if(data <= 0.75){
+      return "more than 50% to 75%"
+    }else{
+      return "more than 75% to 100%"
+    }
+  }
   onChangeHandler({formData}) {
     switch (this.state.step) {
       case 1:
         this.setState((prevStep, prop) => {
           let dataJSON = prevStep.dataJSON;
+          let options = ["non_discrimination",
+            "employees_well_being",
+            "community_development",
+            "supply_chain",
+            "community_business_stakeholder"
+          ];
+          options.forEach((opt)=>{
+            let dat = formData.data[opt];
+            let newop = "range_"+opt;
+            formData.data[newop] = this.classifyRange(dat);
+          });
           dataJSON = formData;
           return {
             dataJSON: dataJSON
@@ -174,6 +206,7 @@ export default class EditGridCard extends React.Component {
     if (this.state.fetchingData) {
       return(<div>Loading</div>)
     } else {
+      console.log(this.state.dataJSON);
       return (
         <div className="proto-container">
           <div className="ui grid form-layout">

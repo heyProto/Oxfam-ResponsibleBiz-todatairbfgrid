@@ -1,25 +1,19 @@
 {
    "data":{
-        "publishername":{
+        "range_non_discrimination":{
             "ui:widget":"hidden"
         },
-        "domainurl":{
+        "range_employees_well_being":{
             "ui:widget":"hidden"
         },
-        "faviconurl":{
+        "range_community_development": {
             "ui:widget":"hidden"
         },
-        "series":{
+        "range_supply_chain": {
             "ui:widget":"hidden"
         },
-        "interactive":{
+        "range_community_business_stakeholder": {
             "ui:widget":"hidden"
-        },
-        "imageurl": {
-            "ui:help": "Hint: 1260px width. 5:3 aspect ratio."
-        },
-        "col7imageurl": {
-            "ui:help": "Hint: 540px width. 5:3 aspect ratio."
         }
    }
 }

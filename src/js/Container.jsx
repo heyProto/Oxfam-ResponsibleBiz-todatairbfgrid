@@ -94,88 +94,22 @@ export default class toDataIRBFGridCard extends React.Component {
       )
     }else{
       let data = this.state.dataJSON.data;
-      let pnd = data.previous_non_discrimination ? data.previous_non_discrimination : 0,
-      cnd = data.current_non_discrimination ? data.current_non_discrimination : 0,
-      pcd = data.previous_community_development ? data.previous_community_development : 0,
-      ccd = data.current_community_development ? data.current_community_development: 0,
-      pcbs = data.previous_community_business_stakeholder ? data.previous_community_business_stakeholder: 0,
-      ccbs = data.current_community_business_stakeholder ? data.current_community_business_stakeholder : 0,
-      pewb = data.previous_employees_well_being ? data.previous_employees_well_being : 0,
-      cewb = data.current_employees_well_being ? data.current_employees_well_being : 0,
-      psc = data.previous_supply_chain ? data.previous_supply_chain : 0,
-      csc = data.current_supply_chain ? data.current_supply_chain : 0;
+      let cnd = data.non_discrimination ? data.non_discrimination : 0,
+      ccd = data.community_development ? data.community_development: 0,
+      ccbs = data.community_business_stakeholder ? data.community_business_stakeholder : 0,
+      cewb = data.employees_well_being ? data.employees_well_being : 0,
+      csc = data.supply_chain ? data.supply_chain : 0;
       return(
         <div className="proto-to-grid-card">
-          <div className="proto-grid">
-            <div className="proto-tool-tip">
-              <div className="proto-t-ownership">Sector: {data.sector}</div>
-              <div className="proto-ratings proto-top-row">
-                <div className="proto-label">Elements</div>
-                <div className="proto-value"> {data.current_year - 1} </div>
-                <div className="proto-per-bar"></div>
-                <div className="proto-per-bar proto-per-bar-15"></div>
-                <div className="proto-value proto-value-16 proto-per-bar-15"> {data.current_year} </div>
-                <div className="proto-value proto-per-value"> Change </div>
-              </div>
-              <div className="proto-ratings">
-                <div className="proto-label"> Non Discrimination</div>
-                <div className="proto-value">{data.previous_non_discrimination ? pnd.toFixed(2): 'NA'}</div>
-                <div className="proto-per-bar proto-per-bar-15">
-                  <div className="proto-year-15" style={{width:pnd.toFixed(2)*100+"%"}}></div>
-                </div>
-                <div className="proto-per-bar proto-per-bar-16">
-                  <div className="proto-year-16" style={{width:cnd.toFixed(2)*100+"%"}}></div>
-                </div>
-                <div className="proto-value proto-value-16">{data.current_non_discrimination ? cnd.toFixed(2) : 'NA'}</div>
-                <div className="proto-value proto-per-value">{(cnd - pnd).toFixed(2)}</div>
-              </div>
-              <div className="proto-ratings">
-                <div className="proto-label">Community Development</div>
-                <div className="proto-value">{data.previous_community_development ? pcd.toFixed(2) : 'NA'}</div>
-                <div className="proto-per-bar proto-per-bar-15">
-                  <div className="proto-year-15" style={{width:pcd.toFixed(2)*100+"%"}}></div>
-                </div>
-                <div className="proto-per-bar proto-per-bar-16">
-                  <div className="proto-year-16" style={{width:ccd.toFixed(2)*100+"%"}}></div>
-                </div>
-                <div className="proto-value proto-value-16">{data.current_community_development ? ccd.toFixed(2) : 'NA'}</div>
-                <div className="proto-value proto-per-value">{(ccd - pcd).toFixed(2)}</div>
-              </div>
-              <div className="proto-ratings">
-                <div className="proto-label">Community Business Stakeholders</div>
-                <div className="proto-value">{data.previous_community_business_stakeholder ? pcbs.toFixed(2): 'NA'}</div>
-                <div className="proto-per-bar proto-per-bar-15">
-                  <div className="proto-year-15" style={{width:pcbs.toFixed(2)*100+"%"}}></div>
-                </div>
-                <div className="proto-per-bar proto-per-bar-16">
-                  <div className="proto-year-16" style={{width:ccbs.toFixed(2)*100+"%"}}></div>
-                </div><div className="proto-value proto-value-16">{data.current_community_business_stakeholder ? ccbs.toFixed(2) : 'NA'}</div>
-                <div className="proto-value proto-per-value">{(ccbs - pcbs).toFixed(2)}</div>
-              </div>
-              <div className="proto-ratings">
-                <div className="proto-label">Employee Well Being</div>
-                <div className="proto-value">{data.previous_employees_well_being ? pewb.toFixed(2) : 'NA'}</div>
-                <div className="proto-per-bar proto-per-bar-15">
-                  <div className="proto-year-15" style={{width:pewb.toFixed(2)*100+"%"}}></div>
-                </div>
-                <div className="proto-per-bar proto-per-bar-16">
-                  <div className="proto-year-16" style={{width:cewb.toFixed(2)*100+"%"}}></div>
-                </div>
-                <div className="proto-value proto-value-16">{data.current_employees_well_being ? cewb.toFixed(2) : 'NA'}</div>
-                <div className="proto-value proto-per-value">{(cewb - pewb).toFixed(2)}</div>
-              </div>
-              <div className="proto-ratings">
-                <div className="proto-label">Supply Chain</div>
-                <div className="proto-value">{data.previous_supply_chain ? psc.toFixed(2) : 'NA'}</div>
-                <div className="proto-per-bar proto-per-bar-15">
-                  <div className="proto-year-15" style={{width:psc.toFixed(2)*100+"%"}}></div>
-                </div>
-                <div className="proto-per-bar proto-per-bar-16">
-                  <div className="proto-year-16" style={{width:csc.toFixed(2)*100+"%"}}></div>
-                </div>
-                <div className="proto-value proto-value-16">{ data.current_supply_chain ? csc.toFixed(2) : 'NA'}</div>
-                <div className="proto-value proto-per-value">{(csc - psc).toFixed(2)}</div>
-              </div>
+          <div className="proto-data-grid-card">
+            <div className="proto-sector-name">{data.ownership}</div>
+            <div className="proto-company-name">{data.name}</div>
+            <div className="proto-parameter-bars">
+              <div className="proto-single-bar proto-first-block" style={{opacity: cnd.toFixed(2)}}></div>
+              <div className="proto-single-bar proto-second-block" style={{opacity: ccd.toFixed(2)}}></div>
+              <div className="proto-single-bar proto-third-block" style={{opacity: ccbs.toFixed(2)}}></div>
+              <div className="proto-single-bar proto-fourth-block" style={{opacity: cewb.toFixed(2)}}></div>
+              <div className="proto-single-bar proto-fifth-block" style={{opacity:csc.toFixed(2) }}></div>
             </div>
           </div>
         </div>

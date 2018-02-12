@@ -1,23 +1,13 @@
 {
-  "data":
-  { 
+  "data":{ 
     "name": "Sun Tv Network Limited", 
-    "sector": "IT, Telecom, Media and Publishing",
-    "current_year": 2017,
-    "current_non_discrimination": 0.233333333333333,
-    "current_employees_well_being": 0.0833333333333333,
-    "current_community_development": 0.478571428571429,
-    "current_supply_chain": 0.116883116883117,
-    "current_community_business_stakeholder": 0.0125,
-    "previous_non_discrimination": 0.4,
-    "previous_employees_well_being": 0.0909090909090909,
-    "previous_community_development": 0.3,
-    "previous_supply_chain": 0.051948051948052, 
-    "previous_community_business_stakeholder": 0.059375, 
-    "change_non_discrimination": 41.66666666666675, 
-    "change_employees_well_being": 8.333333333333357, 
-    "change_community_development": -59.52380952380967, 
-    "change_supply_chain": -125.00000000000003, 
-    "change_community_business_stakeholder": 78.94736842105263 
+    "sector": "IT, Telecom, Media and Publishing", 
+    "ownership": "Private", 
+    "year": 2017, 
+    "non_discrimination": 0.233333333333333, 
+    "employees_well_being": 0.0833333333333333, 
+    "community_development": 0.478571428571429, 
+    "supply_chain": 0.116883116883117, 
+    "community_business_stakeholder": 0.0125
   }
 }
