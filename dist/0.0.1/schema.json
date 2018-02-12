@@ -66,10 +66,7 @@
         }
       },
       "title":"Card Data",
-      "type": "object",
-      "required": [
-        "description"
-      ]
+      "type": "object"
     }
   },
   "type": "object"
