@@ -1,0 +1,70 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {},
+  "id": "http://example.com/example.json",
+  "properties": {
+    "data": {
+      "id": "/properties/data",
+      "properties": {
+        "name": {
+          "title": "Company Name",
+          "type": "string"
+        },
+        "sector":{
+          "title": "Sector",
+          "type": "string"
+        },
+        "current_year":{
+          "title": "Current Year",
+          "type": "integer"
+        },
+        "current_non_discrimination":{
+          "title":"Current Non Discrimination",
+          "type":"number"
+        },
+        "current_employees_well_being":{
+          "title":"Current Employees Well Being",
+          "type":"number"
+        },
+        "current_community_development": {
+          "title":"Current Community Development",
+          "type":"number"
+        },
+        "current_supply_chain": {
+          "title":"Current Supply Chain",
+          "type":"number"
+        },
+        "current_community_business_stakeholder": {
+          "title":"Current Community Business Stakeholder",
+          "type":"number"
+        },
+        "previous_non_discrimination":{
+          "title":"Previous Non Discrimination",
+          "type":"number"
+        },
+        "previous_employees_well_being": {
+          "title":"Previous Employees Well Being",
+          "type":"number"
+        },
+        "previous_community_development": {
+          "title":"Previous Community Development",
+          "type":"number"
+        },
+        "previous_supply_chain": {
+          "title":"Previous Supply Chain",
+          "type":"number"
+        },
+        "previous_community_business_stakeholder": {
+          "title":"Previous Community Business Stakeholder",
+          "type":"number"
+        }
+      },
+      "title":"Card Data",
+      "type": "object",
+      "required": [
+        "description"
+      ]
+    }
+  },
+  "type": "object"
+}
