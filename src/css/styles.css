@@ -3,6 +3,9 @@
 #protograph-div {
   overflow: hidden;
 }
+body{
+  overflow: hidden;
+}
 .proto-data-grid-card{
 height: 160px;
     width: 140px;
