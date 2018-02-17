@@ -17,33 +17,35 @@ height: 160px;
 }
 
 .proto-sector-name{
-font-size: 10px;
-    font-family: cabin;
-    color: #333;
-    opacity: 0.5;
-    margin-bottom: 5px;
-    letter-spacing: 0.8px;
+  font-size: 10px;
+  font-family: cabin;
+  color: #333;
+  opacity: 0.5;
+  margin-bottom: 5px;
+  letter-spacing: 0.8px;
   text-transform: uppercase;
 }
 
 .proto-company-name{
-font-size: 18px;
-    font-family: "cabin";
-    color: #333;
+  font-size: 16px;
+  font-family: "cabin";
+  color: #333;
+  line-height:20px;
+  word-wrap: break-word !important;
 }
 
 .proto-parameter-bars{
-position: absolute;
-    bottom: 0px;
-    left: 0px;
-    width: 140px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 140px;
 }
 
 .proto-single-bar{
-height: 5px;
-    background: #1C728A;
-    float: left;
-    width: 28px;
+  height: 5px;
+  background: #1C728A;
+  float: left;
+  width: 28px;
 }
 
 
