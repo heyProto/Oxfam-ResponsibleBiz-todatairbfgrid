@@ -67,6 +67,10 @@
         "tooltip_iframe_url":{
           "title":"Tooltip iFrame URL",
           "type":"string"
+        },
+        "page_url":{
+          "title":"Page URL",
+          "type":"string"
         }
       },
       "title":"Card Data",
