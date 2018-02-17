@@ -63,6 +63,10 @@
         "range_community_business_stakeholder": {
           "title":"Range of Current Community Business Stakeholder",
           "type":"string"
+        },
+        "tooltip_iframe_url":{
+          "title":"Tooltip iFrame URL",
+          "type":"string"
         }
       },
       "title":"Card Data",
