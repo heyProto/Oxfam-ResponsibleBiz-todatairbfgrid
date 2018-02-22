@@ -244,9 +244,7 @@ export default class EditGridCard extends React.Component {
                   <GridCard
                     mode={this.state.mode}
                     dataJSON={this.state.dataJSON}
-                    schemaJSON={this.state.schemaJSON}
                     optionalConfigJSON={this.state.optionalConfigJSON}
-                    optionalConfigSchemaJSON={this.state.optionalConfigSchemaJSON}
                     siteConfigs={this.state.siteConfigs}
                   />
                 </div>
