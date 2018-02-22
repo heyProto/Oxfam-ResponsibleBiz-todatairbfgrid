@@ -20,7 +20,6 @@ export default class toDataIRBFGridCard extends React.Component {
       stateVar.optionalConfigJSON = this.props.optionalConfigJSON;
     }
 
-    console.log(this.props)
     if (this.props.siteConfigs) {
       stateVar.siteConfigs = this.props.siteConfigs;
     }
@@ -31,22 +30,18 @@ export default class toDataIRBFGridCard extends React.Component {
   componentDidMount() {
     if (this.state.fetchingData){
       let items_to_fetch = [
-        axios.get(this.props.dataURL),
-
-        axios.get(this.props.optionalConfigURL),
-
-        axios.get(this.props.siteConfigURL)
+        axios.get(this.props.dataURL)
       ];
 
       if (this.props.siteConfigURL) {
         items_to_fetch.push(axios.get(this.props.siteConfigURL));
       }
 
-      axios.all(items_to_fetch).then(axios.spread((card, opt_config, site_configs) => {
+      axios.all(items_to_fetch).then(axios.spread((card, site_configs) => {
         let stateVar = {
           fetchingData: false,
           dataJSON: card.data,
-          optionalConfigJSON: opt_config.data,
+          optionalConfigJSON: {},
           siteConfigs: site_configs ? site_configs.data : this.state.siteConfigs
         };
 

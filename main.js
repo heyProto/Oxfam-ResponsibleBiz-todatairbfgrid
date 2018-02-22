@@ -27,8 +27,6 @@ ProtoGraph.Card.toDataIRBFGrid.prototype.render = function () {
     <GridCard
       dataURL={this.options.data_url}
       selector={this.options.selector}
-      domain={this.options.domain}
-      optionalConfigURL={this.options.configuration_url}
       siteConfigURL={this.options.site_config_url}
       siteConfigs={this.options.site_configs}
       mode={this.mode}
