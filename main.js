@@ -30,6 +30,7 @@ ProtoGraph.Card.toDataIRBFGrid.prototype.render = function () {
       domain={this.options.domain}
       optionalConfigURL={this.options.configuration_url}
       siteConfigURL={this.options.site_config_url}
+      siteConfigs={this.options.site_configs}
       mode={this.mode}
       ref={(e) => {
         this.containerInstance = this.containerInstance || e;
