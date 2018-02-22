@@ -68,7 +68,7 @@ export default class EditGridCard extends React.Component {
             optionalConfigSchemaJSON: opt_config_schema.data,
             siteConfigs: site_configs.data
           }
-          
+
           stateVar.optionalConfigJSON.house_colour = stateVar.siteConfigs.house_colour;
           stateVar.optionalConfigJSON.reverse_house_colour = stateVar.siteConfigs.reverse_house_colour;
           stateVar.optionalConfigJSON.font_colour = stateVar.siteConfigs.font_colour;
@@ -244,10 +244,10 @@ export default class EditGridCard extends React.Component {
                   <GridCard
                     mode={this.state.mode}
                     dataJSON={this.state.dataJSON}
-                    domain={this.props.domain}
                     schemaJSON={this.state.schemaJSON}
                     optionalConfigJSON={this.state.optionalConfigJSON}
                     optionalConfigSchemaJSON={this.state.optionalConfigSchemaJSON}
+                    siteConfigs={this.state.siteConfigs}
                   />
                 </div>
               </div>
