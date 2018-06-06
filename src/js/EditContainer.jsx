@@ -1,6 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import axios from 'axios';
+import { render } from 'react-dom';
+import { all as axiosAll, get as axiosGet, spread as axiosSpread } from 'axios';
 import GridCard from './Container.jsx';
 import JSONSchemaForm from '../../lib/js/react-jsonschema-form';
 
@@ -16,8 +16,6 @@ export default class EditGridCard extends React.Component {
       fetchingData: true,
       uiSchemaJSON: {},
       schemaJSON: undefined,
-      optionalConfigJSON: {},
-      optionalConfigSchemaJSON: undefined,
     }
     this.toggleMode = this.toggleMode.bind(this);
   }
@@ -29,8 +27,6 @@ export default class EditGridCard extends React.Component {
       dataJSON: data,
       schemaJSON: this.state.schemaJSON,
       uiSchemaJSON: this.state.uiSchemaJSON,
-      optionalConfigJSON: this.state.optionalConfigJSON,
-      optionalConfigSchemaJSON: this.state.optionalConfigSchemaJSON
     }
     getDataObj["name"] = getDataObj.dataJSON.data.name.substr(0,225); // Reduces the name to ensure the slug does not get too long
     return getDataObj;
@@ -38,14 +34,12 @@ export default class EditGridCard extends React.Component {
 
   componentDidMount() {
     if (this.state.fetchingData){
-      axios.all([
-        axios.get(this.props.dataURL),
-        axios.get(this.props.schemaURL),
-        axios.get(this.props.optionalConfigURL),
-        axios.get(this.props.optionalConfigSchemaURL),
-        axios.get(this.props.uiSchemaURL),
-        axios.get(this.props.siteConfigURL)
-      ]).then(axios.spread((card, schema, opt_config, opt_config_schema, uiSchema, site_configs) => {
+      axiosAll([
+        axiosGet(this.props.dataURL),
+        axiosGet(this.props.schemaURL),
+        axiosGet(this.props.uiSchemaURL),
+        axiosGet(this.props.siteConfigURL)
+      ]).then(axiosSpread((card, schema, uiSchema, site_configs) => {
           let formData = card.data,
               stateVar;
           let options = ["non_discrimination",
@@ -64,15 +58,9 @@ export default class EditGridCard extends React.Component {
             dataJSON:formData,
             schemaJSON: schema.data,
             uiSchemaJSON: uiSchema.data,
-            optionalConfigJSON: opt_config.data,
-            optionalConfigSchemaJSON: opt_config_schema.data,
             siteConfigs: site_configs.data
           }
 
-          stateVar.optionalConfigJSON.house_colour = stateVar.siteConfigs.house_colour;
-          stateVar.optionalConfigJSON.reverse_house_colour = stateVar.siteConfigs.reverse_house_colour;
-          stateVar.optionalConfigJSON.font_colour = stateVar.siteConfigs.font_colour;
-          stateVar.optionalConfigJSON.reverse_font_colour = stateVar.siteConfigs.reverse_font_colour;
           this.setState(stateVar);
         }))
         .catch((error) => {
@@ -142,9 +130,6 @@ export default class EditGridCard extends React.Component {
     switch(this.state.step){
       case 1:
         return this.state.schemaJSON;
-        break;
-      case 2:
-        return this.state.optionalConfigSchemaJSON;
         break;
     }
   }
@@ -244,7 +229,6 @@ export default class EditGridCard extends React.Component {
                   <GridCard
                     mode={this.state.mode}
                     dataJSON={this.state.dataJSON}
-                    optionalConfigJSON={this.state.optionalConfigJSON}
                     siteConfigs={this.state.siteConfigs}
                   />
                 </div>
